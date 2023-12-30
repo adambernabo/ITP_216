@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ ticker }}</title>
+    </head>
+    <body>
+        <h1>Stock data for {{ ticker }}: {{ data_request }} {% if volume %} (volume) {% endif %} </h1>
+            <img src="{{ url_for('fig', data_request=data_request, ticker=ticker, volume=volume) }}" alt="Cases in {{ ticker }}">
+        <form action="/submit_volume" method="POST">
+            <p>Select the first of a month from 01/01/2018 to 03/01/2023 to see the top 5 biggest movers:
+                <input type="text" name="date" placeholder="mm/01/yyyy">
+                <input type="submit" value="Submit"></p>
+        </form>
+
+    </body>
+</html>
